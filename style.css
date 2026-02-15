@@ -1,0 +1,17 @@
+*{
+    font-family: "Poppins", sans-serif;
+    
+}
+#bannersection{
+    background-image: linear-gradient(to right,
+            rgba(10,25,60,0.85) 0%,  
+            rgba(10,25,60,0.65) 30%,
+            rgba(10,25,60,0.35) 55%,
+            rgba(10,25,60,0.10) 75%,
+            rgba(10,25,60,0) 100%    
+        ),url(./Assets/banner-image.png) ;
+     background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 500px;
+}
