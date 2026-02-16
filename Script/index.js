@@ -215,6 +215,13 @@ document.getElementById("product-modal").classList.add("hidden");
 }
 // Home and product
 
+function showSection(id){
+
+    document.getElementById("bydefault").classList.add("hidden");
+    document.getElementById("our-products").classList.add("hidden");
+
+    document.getElementById(id).classList.remove("hidden");
+}
 
 loadTrending();
 
