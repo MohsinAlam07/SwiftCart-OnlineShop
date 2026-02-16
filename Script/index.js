@@ -200,18 +200,23 @@ fetch(`https://fakestoreapi.com/products/${id}`)
 .then(res=>res.json())
 .then(product=>{
 
-document.getElementById("modal-title").innerText=product.title;
-document.getElementById("modal-img").src=product.image;
-document.getElementById("modal-desc").innerText=product.description;
-document.getElementById("modal-price").innerText="$"+product.price;
+document.getElementById("modal-title").innerText = product.title;
+document.getElementById("modal-img").src = product.image;
+document.getElementById("modal-desc").innerText = product.description;
+document.getElementById("modal-price").innerText = "$" + product.price;
+
+// ⭐ rating add
+document.getElementById("modal-rating").innerText =
+"Rating: " + product.rating.rate + " ⭐ (" + product.rating.count + ")";
 
 document.getElementById("product-modal").classList.remove("hidden");
+document.getElementById("product-modal").classList.add("flex");
 
 });
-
 }
 function closeModal(){
 document.getElementById("product-modal").classList.add("hidden");
+document.getElementById("product-modal").classList.remove("flex");
 }
 // Home and product
 
