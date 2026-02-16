@@ -66,8 +66,11 @@
         </div>
         <div class="navbar-center gap-4 hidden lg:flex">
           <ul class="menu menu-horizontal px-5 space-x-4">
-            <li class="text-lg font-medium">Home</li>
-            <li class="text-lg font-medium">Product</li>
+           <li class="text-lg font-medium cursor-pointer"
+onclick="showHome()">Home</li>
+
+<li class="text-lg font-medium cursor-pointer"
+onclick="showProducts()">Product</li>
             <li class="text-lg font-medium">About</li>
             <li class="text-lg font-medium">Contact</li>
           </ul>
@@ -79,6 +82,8 @@
     </header>
     <!-- Navigation Bar end -->
     <!-- Banner Section Start -->
+     <!-- all things here -->
+<section id="bydefault">
    <section id="bannersection"
 class="flex items-center min-h-screen px-4 md:px-20">
 
@@ -107,7 +112,7 @@ Shop Now
     <!-- Banner Section end -->
      <!-- Why choose us section start -->
     
-        <section class="bg-gray-100 py-16 w-11/12 mx-auto">
+       <section id="why-section" class="bg-gray-100 py-16 w-11/12 mx-auto">
 
   <!-- heading -->
   <div class="text-center mb-12 px-4">
@@ -172,6 +177,15 @@ Shop Now
     
       
      <!-- Why choose us section end -->
+      <!-- Trending section start-->
+ <section id="trending-section" class="bg-gray-100 py-10 my-10 w-11/12 mx-auto">
+  <h1 class="text-3xl font-bold mb-6">Trending Now</h1>
+
+  <div id="trending-container"
+  class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6"></div>
+</section>
+</section>
+<!-- all things here end -->
 
      <!-- Our Product start-->
       <section id="our-products" class="text-center items-center m-8">
@@ -190,6 +204,10 @@ class=" w-11/12 mx-auto flex flex-wrap justify-center gap-3 my-8 px-3">
 </div>
 
       </section>
+
+ <!-- Trending section end -->
+
+
       <!-- Categories product start -->
       
        <!-- categories product end -->
@@ -281,6 +299,27 @@ class=" w-11/12 mx-auto flex flex-wrap justify-center gap-3 my-8 px-3">
 
 </footer>
       <!-- Footer section end -->
+       <!-- Modal -->
+        <div id="product-modal"
+class="fixed inset-0 bg-black/50 hidden items-center justify-center">
+
+<div class="bg-white max-w-md p-6 rounded-xl">
+
+<img id="modal-img" class="h-40 mx-auto object-contain">
+
+<h2 id="modal-title" class="font-bold mt-3"></h2>
+
+<p id="modal-desc" class="text-gray-600 my-3"></p>
+
+<p id="modal-price" class="font-bold text-indigo-600"></p>
+
+<button onclick="closeModal()"
+class="mt-4 bg-indigo-600 text-white px-4 py-2 rounded">
+Close
+</button>
+
+</div>
+</div>
 
     <script src="./Script/index.js"></script>
   </body>
