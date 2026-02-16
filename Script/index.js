@@ -215,12 +215,23 @@ document.getElementById("product-modal").classList.add("hidden");
 }
 // Home and product
 
-function showSection(id){
+function showSection(sectionId, btnId){
 
+    // hide sections
     document.getElementById("bydefault").classList.add("hidden");
     document.getElementById("our-products").classList.add("hidden");
 
-    document.getElementById(id).classList.remove("hidden");
+    // show selected section
+    document.getElementById(sectionId).classList.remove("hidden");
+
+
+    // remove active style from menu
+    document.getElementById("homeBtn").classList.remove("text-blue-600","font-bold");
+    document.getElementById("productBtn").classList.remove("text-blue-600","font-bold");
+
+
+    // add active style to clicked menu
+    document.getElementById(btnId).classList.add("text-blue-600","font-bold");
 }
 
 loadTrending();
