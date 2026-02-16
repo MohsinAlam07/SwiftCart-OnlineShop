@@ -3,25 +3,116 @@ const loadCatagories = () => {
     fetch(url)
     .then(res => res.json())
     .then(data => {
-        // console.log(data)
-        displayCatagories(data);
+        displayCatagories(data)
     });
     
 }
+const loadProducts = (category="all") => {
 
+    let url;
+
+    if(category==="all"){
+        url="https://fakestoreapi.com/products";
+    }
+    else{
+        url=`https://fakestoreapi.com/products/category/${encodeURIComponent(category)}`;
+    }
+
+    fetch(url)
+    .then(res=>res.json())
+    .then(data=>showProducts(data));
+}
+const showProducts = (products)=>{
+
+const container=document.getElementById("product-container");
+
+container.innerHTML="";
+
+container.className =
+"grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6";
+
+products.forEach(p=>{
+
+const div=document.createElement("div");
+
+div.className="bg-white rounded-xl shadow p-4 flex flex-col";
+
+div.innerHTML=`
+
+<!-- IMAGE BOX -->
+<div class="bg-gray-100 rounded-lg p-6 h-52 flex items-center justify-center w-11/12 mx-auto">
+<img src="${p.image}" class="h-40 object-contain">
+</div>
+
+<!-- CATEGORY + RATING -->
+<div class="flex justify-between items-center mt-3">
+
+<span class="text-xs bg-indigo-100 text-indigo-600 px-2 py-1 rounded-full">
+${p.category}
+</span>
+
+<span class="text-sm text-gray-500 flex items-center gap-1">
+⭐ ${p.rating.rate} (${p.rating.count})
+</span>
+
+</div>
+
+<!-- TITLE -->
+<h3 class="font-semibold mt-2 line-clamp-2 min-h-[48px]">
+${p.title}
+</h3>
+
+<!-- PRICE -->
+<p class="font-bold text-lg mt-1">
+$${p.price}
+</p>
+
+<!-- BUTTONS -->
+<div class="flex gap-2 mt-3">
+
+<button class="flex-1 border rounded-lg py-2 text-sm hover:bg-gray-100">
+👁 Details
+</button>
+
+<button class="flex-1 bg-indigo-600 text-white rounded-lg py-2 text-sm hover:bg-indigo-700">
+🛒 Add
+</button>
+
+</div>
+
+`;
+
+container.appendChild(div);
+
+});
+
+}
 const displayCatagories = (categories) => {
-    console.log(categories);
+    
 
-    const productContainer = document.getElementById("product-container");
-    productContainer.innerHTML = "";
+const container = document.getElementById("category-container");
+container.innerHTML="";
 
-    categories.forEach(category => {
-        const btnDiv=document.createElement("div");
-        btnDiv.innerHTML=`
-        
-        <button class="btn  rounded-2xl">${category}</button>`
-        productContainer.append(btnDiv);
-    });
+// add ALL button
+const allBtn=document.createElement("button");
+allBtn.innerText="All";
+allBtn.className="btn rounded-2xl";
+allBtn.onclick=()=>loadProducts("all");
+container.appendChild(allBtn);
+
+categories.forEach(category => {
+
+const btn=document.createElement("button");
+
+btn.innerText=category;
+btn.className="btn rounded-2xl";
+
+btn.onclick=()=>loadProducts(category);
+
+container.appendChild(btn);
+
+});
+
 }
 
 loadCatagories();
