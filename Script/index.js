@@ -205,7 +205,7 @@ document.getElementById("modal-img").src = product.image;
 document.getElementById("modal-desc").innerText = product.description;
 document.getElementById("modal-price").innerText = "$" + product.price;
 
-// ⭐ rating add
+
 document.getElementById("modal-rating").innerText =
 "Rating: " + product.rating.rate + " ⭐ (" + product.rating.count + ")";
 
