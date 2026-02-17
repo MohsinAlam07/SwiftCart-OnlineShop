@@ -136,12 +136,12 @@ const topRated = products
 .sort((a,b)=>b.rating.rate - a.rating.rate)
 .slice(0,3);
 
-showTrending(topRated);
+displayTrending(topRated);
 
 });
 
 };
-const showTrending = (products)=>{
+const displayTrending = (products)=>{
 
 const container=document.getElementById("trending-container");
 container.innerHTML="";
