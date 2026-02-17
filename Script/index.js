@@ -39,12 +39,12 @@ div.className="bg-white rounded-xl shadow p-4 flex flex-col";
 
 div.innerHTML=`
 
-<!-- IMAGE BOX -->
+
 <div class="bg-gray-100 rounded-lg p-6 h-52 flex items-center justify-center w-11/12 mx-auto">
 <img src="${p.image}" class="h-40 object-contain">
 </div>
 
-<!-- CATEGORY + RATING -->
+
 <div class="flex justify-between items-center mt-3">
 
 <span class="text-xs bg-indigo-100 text-indigo-600 px-2 py-1 rounded-full">
@@ -57,17 +57,17 @@ ${p.category}
 
 </div>
 
-<!-- TITLE -->
+
 <h3 class="font-semibold mt-2 line-clamp-2 min-h-[48px]">
 ${p.title}
 </h3>
 
-<!-- PRICE -->
+
 <p class="font-bold text-lg mt-1">
 $${p.price}
 </p>
 
-<!-- BUTTONS -->
+
 <div class="flex gap-2 mt-3">
 
 <button onclick="showDetails(${p.id})" class="flex-1 border rounded-lg py-2 text-sm hover:bg-gray-100">
@@ -93,7 +93,7 @@ const displayCatagories = (categories) => {
 const container = document.getElementById("category-container");
 container.innerHTML="";
 
-// add ALL button
+
 const allBtn=document.createElement("button");
 allBtn.innerText="All";
 allBtn.className="cat-btn btn rounded-2xl";
